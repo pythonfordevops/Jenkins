@@ -1,1 +1,42 @@
 
+Step-1: Launch the basic EC2 instance with 8080 port enable in the security group.
+
+Step-2: Update the software package of the instance using the below command:
+
+sudo yum update -y
+
+Step-3: Install java packages and remove the oldest version of java if any:
+
+sudo yum install java-1.8.0
+
+sudo yum remove java-1.7.0-openjdk
+
+Step-4: Add the Jenkins repo:
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+
+Step-5: Import the key file:
+
+Note: Below is the2 hyphens attached to the import keyword.
+
+sudo rpm — import https://pkg.jenkins.io/redhat/jenkins.io.key
+
+Step-6: Install Jenkins using the below command:
+
+sudo yum install jenkins -y
+
+Step-7: Start the Jenkins service:
+
+sudo service jenkins start
+
+Step-8: Open the browser and hit the public IP along with the 8080 port.
+
+Step-9: Copy the path and get the password from the server:
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Step-10: Install the suggested plugins :
+
+Step-11: Add the user credentials and save it:
+
+Step-12: Installation and configuration are completed and now you can start creating the Jenkins jobs.
