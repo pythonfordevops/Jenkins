@@ -5,21 +5,18 @@ Step-2: Update the software package of the instance using the below command:
 
 sudo yum update -y
 
-Step-3: Install java packages and remove the oldest version of java if any:
+step- 3
+Long Term Support release
+A LTS (Long-Term Support) release is chosen every 12 weeks from the stream of regular releases as the stable release for that time period. It can be installed from the redhat-stable yum repository.
 
-sudo yum install java-1.8.0
-
-sudo yum remove java-1.7.0-openjdk
-
-Step-4: Add the Jenkins repo:
-
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-
-Step-5: Import the key file:
-
-Note: Below is the2 hyphens attached to the import keyword.
-
-sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+# Add required dependencies for the jenkins package
+sudo yum install java-11-openjdk
+sudo yum install jenkins
+sudo systemctl daemon-reload
 
 Step-6: Install Jenkins using the below command:
 
@@ -28,6 +25,9 @@ sudo yum install jenkins -y
 Step-7: Start the Jenkins service:
 
 sudo service jenkins start
+
+if you face issues u need to check java version:
+sudo update-alternatives --config java
 
 Step-8: Open the browser and hit the public IP along with the 8080 port.
 
