@@ -19,7 +19,7 @@ Step-5: Import the key file:
 
 Note: Below is the2 hyphens attached to the import keyword.
 
-sudo rpm — import https://pkg.jenkins.io/redhat/jenkins.io.key
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 
 Step-6: Install Jenkins using the below command:
 
